@@ -54,14 +54,22 @@ function Teams({ user }) {
                       </button>
                     </Link>
 
-                    <Link to={`/teams/${team.id}/edit`}>
-                      <button type="button" className="btn-edit">
-                        Edit
-                      </button>
-                    </Link>
-                    <button type="button" className="btn-delete" onClick={() => handleDelete(team)}>
-                      Delete
-                    </button>
+                    {user && (
+                      <>
+                        <Link to={`/teams/${team.id}/edit`}>
+                          <button type="button" className="btn-edit">
+                            Edit
+                          </button>
+                        </Link>
+                        <button
+                          type="button"
+                          className="btn-delete"
+                          onClick={() => handleDelete(team)}
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
               ))}
