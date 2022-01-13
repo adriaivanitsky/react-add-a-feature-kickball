@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/Loading';
 import { deleteTeamById, getTeams } from '../../services/teams';
 
-function Teams() {
+function Teams({ user }) {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ function Teams() {
 
   return (
     <>
-      <Link to="/teams/new">Add New Team</Link>
+      {user && <Link to="/teams/new">Add New Team</Link>}
       {loading ? (
         <Loading />
       ) : (
