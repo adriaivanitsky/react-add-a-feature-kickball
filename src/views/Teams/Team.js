@@ -4,6 +4,7 @@ import Loading from '../../components/loading/Loading';
 import { getTeamById } from '../../services/teams';
 
 function Team({
+  user,
   match: {
     params: { id },
   },
@@ -29,9 +30,7 @@ function Team({
       <p>
         {team.city}, {team.state}
       </p>
-      <p>
-        <Link to={`/teams/${id}/edit`}>Edit Team</Link>
-      </p>
+      <p>{user && <Link to={`/teams/${id}/edit`}>Edit Team</Link>}</p>
     </>
   );
 }
